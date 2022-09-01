@@ -33,6 +33,6 @@ public class Empresa {
     @Getter    @Setter @Column(name="fecha_act")
     private Date fecha_act;
 
-    @OneToMany(mappedBy = "Empresas", cascade = CascadeType.ALL, orphanRemoval = true) @Setter @Getter
+    @OneToMany(mappedBy = "empresa", cascade = CascadeType.ALL, orphanRemoval = true) @Setter @Getter
     private List<Empleado> EmpleadosList;
 }
