@@ -59,7 +59,7 @@ public class controladorEmpresa {
         return "redirect:/AgregarEmpresa";
     }
 
-    @GetMapping("/EditarEmpresa/{id}")
+    @GetMapping("/enterprises/{id}")
     public String editarEmpresa(Model model, @PathVariable Integer id, @ModelAttribute("mensaje") String mensaje){
         Empresa emp=empresaService.getEmpresaById(id);
         //Creamos un atributo para el modelo, que se llame igualmente emp y es el que ira al html para llenar o alimentar campos
