@@ -26,13 +26,7 @@ public class controladorEmpresa {
         );
     }
 
-   /*PostMapping("/enterprises")
-    public ResponseEntity<EmpresaResponse> postUsuario(@RequestBody Empresa empresa){
-        return new ResponseEntity<>(new EmpresaResponse(
-                "Usuario creado exitosamente",
-                empresaService.saveOrUpdateEmpresa(empresa)),HttpStatus.OK);
-    }
-*/
+
 
 
     @GetMapping({"/","/seeEnterprises"})
@@ -40,7 +34,8 @@ public class controladorEmpresa {
         List<Empresa> listaEmpresas=empresaService.getAllEmpresas();
         model.addAttribute("emplist",listaEmpresas);
         model.addAttribute("mensaje",mensaje);
-        return "verEmpresas"; //Llamamos al HTML
+
+        return "verEmpresas.html";
 
     }
 
