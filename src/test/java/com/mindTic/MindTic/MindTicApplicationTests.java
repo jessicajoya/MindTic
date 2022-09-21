@@ -1,4 +1,4 @@
-package com.mindTic.MindTic;
+package com.MindTic.MindTic;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
