@@ -1,66 +1,42 @@
 // Call the dataTables jQuery plugin
 $(document).ready(function () {
-  cargarempleado();
+  verificarlogin();
   colocarnombre();
 });
-
-async function cargarempleado() {
-
-  const request = await fetch('api/login', {
-    method: 'GET',
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    },
-  });
-  const usuarios = await request.json();
-
-  let listadoHtml = '';
-  for (let usuario of usuarios) {
-    let usuarioHtml = '<option value=' +usuario[0]+ '>' + usuario[1] + '</option>';
-    listadoHtml += usuarioHtml;
+function verificarlogin() {
+  if (localStorage.nombrecompleto == "null") {
+    location.href = "login.html";
   }
-
-  document.querySelector('#listrol').outerHTML = listadoHtml;
-
 }
 
-async function nuevoEmpleado() {  
-  empleado={};
-  empleado.nombrecompleto = document.getElementById('txtNombre').value;
-  empleado.email = document.getElementById('txtEmail').value;
-  empleado.password = document.getElementById('txtPassword').value;
-  empleado.rolid= parseInt(document.getElementById('rol').value, 10);
-  empleado.empresaid = parseInt(document.getElementById('emp').value, 10);
-  let rpassword = document.getElementById('txtRPassword').value;
+async function nuevoEmpleado() {
+  movimiento = {};
+  movimiento.monto = document.getElementById('txtMonto').value;
+  movimiento.tipomovimiento = document.getElementById('txtTipo').value;
+  movimiento.conceptomovimiento = document.getElementById('txtConcepto').value;
+  movimiento.empid = localStorage.idempleado
 
-  console.log(empleado);
+  console.log(movimiento);
 
-  if (empleado.password != rpassword) {
-    alert("Las contraseñas no coinciden!")
-    return
-  }
-
-  if (empleado.nombrecompleto== "" || empleado.email == "" || empleado.password == "" || empleado.rolid == "" || empleado.empresaid == "") {
+  if (movimiento.monto == "" || movimiento.tipomovimiento == "") {
     alert("Ingrese todos los datos!")
     return
   }
 
-  const request = await fetch('api/listarempleados', {
+  const request = await fetch('api/listarmovimientos', {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Authorization': localStorage.token,
     },
-    body:JSON.stringify(empleado)
+    body: JSON.stringify(movimiento)
   });
-  location.href ="empleados.html";
+  location.href = "movimientos.html";
   const respuesta = await request.text();
- 
-
 }
 
-function colocarnombre(){
-  document.querySelector('#txtNombreCompleto').outerHTML = localStorage.nombrecompleto;
+function colocarnombre() {
+  document.querySelector('#emp').outerHTML = localStorage.nombrecompleto;
 
 }

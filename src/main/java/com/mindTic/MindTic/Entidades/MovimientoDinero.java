@@ -16,7 +16,7 @@ public class MovimientoDinero {
     private float monto;
 
     @Setter @Getter @Column(name="tipomovimiento")
-    private boolean tipomovimiento;
+    private String tipomovimiento;
 
     @Setter @Getter @Column(name="conceptomovimiento")
     private String conceptomovimiento;
@@ -30,4 +30,7 @@ public class MovimientoDinero {
     @ManyToOne() @Setter @Getter
     @JoinColumn(name = "idempleado")
     private Empleado empleado;
+
+    @Setter @Getter @Column(name="empid")
+    protected long empid;
 }

@@ -74,7 +74,7 @@
                         <a class="collapse-item" href="nuevomovimiento.html">Nuevo Movimiento $</a>
                         <div class="collapse-divider"></div>
                         <h6 class="collapse-header">Otras Paginas:</h6>
-                        <a class="collapse-item" href="404.html">Cerrar Sesiòn</a>
+                        <a class="collapse-item" href="login.html">Cerrar Sesiòn</a>
                         <a class="collapse-item" href="blank.html">Contactar Administrador</a>
                     </div>
                 </div>
@@ -172,7 +172,8 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"id="txtNombreCompleto">Douglas McGee</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small" id="txtNombreCompleto">Douglas
+                                    McGee</span>
                                 <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
@@ -208,9 +209,9 @@
 
                     <!-- Page Heading -->
 
-                    <p class="row">Listado de movimientos de dinero registrados en el software <a href="https://datatables.net"
-                            class="col-sm-12 col-md-3 target=">contactar con el Administrador</a><a
-                            onclick="" href="nuevomovimiento.html"
+                    <p class="row">Listado de movimientos de dinero registrados en el software <a
+                            href="https://datatables.net" class="col-sm-12 col-md-3 target=">contactar con el
+                            Administrador</a><a onclick="" href="nuevomovimiento.html"
                             class="btn btn-primary btn-user btn-block col-sm-12 col-md-3" style="margin-left: auto;">
                             Nuevo Movimiento $
                         </a></p>
@@ -282,6 +283,35 @@
                                                     </tbody>
                                                 </table>
                                             </div>
+
+                                            <div class="col-sm-12">
+                                                <table class="table table-bordered dataTable no-footer" id="totales"
+                                                    role="grid" aria-describedby="usuarios_info" style="width: 100%;"
+                                                    width="100%" cellspacing="0">
+                                                    <thead>
+                                                        <tr role="row">
+                                                            <th class="sorting sorting_asc" tabindex="0"
+                                                                aria-controls="usuarios" rowspan="1" colspan="1"
+                                                                aria-sort="ascending"
+                                                                aria-label="Id: activate to sort column descending"
+                                                                style="width: 51px;">Ingresos</th>
+                                                            <th class="sorting" tabindex="0" aria-controls="usuarios"
+                                                                rowspan="1" colspan="1"
+                                                                aria-label="Nombre Completo: activate to sort column ascending"
+                                                                style="width: 223px;">Egresos</th>
+                                                            <th class="sorting" tabindex="0" aria-controls="usuarios"
+                                                                rowspan="1" colspan="1"
+                                                                aria-label="Email: activate to sort column ascending"
+                                                                style="width: 229px;">Balance Total</th>
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
                                         </div>
                                         <div class="row">
                                             <div class="col-sm-12 col-md-5">
@@ -358,7 +388,8 @@
                 <div class="modal-body">Selecciona Logout si desea cerrar Sesion</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a onclick="localStorage.token=null; localStorage.nombrecompleto=null" class="btn btn-primary" href="login.html">Logout</a>
+                    <a onclick="localStorage.token=null; localStorage.nombrecompleto=null" class="btn btn-primary"
+                        href="login.html">Logout</a>
                 </div>
             </div>
         </div>

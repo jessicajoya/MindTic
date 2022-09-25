@@ -1,9 +1,21 @@
 // Call the dataTables jQuery plugin
 $(document).ready(function () {
+  verificarlogin();
   cargarUsuarios();
   $('#empleados').DataTable();
   colocarnombre();
+
 });
+
+function verificarlogin() {
+  if (localStorage.nombrecompleto == "null") {
+    location.href = "login.html";
+  }
+  if(localStorage.rol=="2"){    
+    alert('Su Perfil Rol no tiene permisos para esta funcion')
+    location.href = "movimientos.html";
+  }
+}
 
 function colocarnombre() {
   document.querySelector('#txtNombreCompleto').outerHTML = localStorage.nombrecompleto;

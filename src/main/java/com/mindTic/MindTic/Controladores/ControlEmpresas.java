@@ -55,4 +55,7 @@ public class ControlEmpresas {
     @RequestMapping(value = "api/listarempleados",method = RequestMethod.POST)
     public void nuevoEmpleado(@RequestBody Empleado empleado){
             usuariodao.nempleado(empleado);}
+    @RequestMapping(value = "api/listarmovimientos",method = RequestMethod.POST)
+    public void nuevoMovimiento(@RequestBody MovimientoDinero movimientoDinero){
+        usuariodao.nuevoMovimientos(movimientoDinero);}
 }

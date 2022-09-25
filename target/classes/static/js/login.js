@@ -1,5 +1,9 @@
 // Call the dataTables jQuery plugin
 $(document).ready(function() {
+  localStorage.clear();
+  localStorage.nombrecompleto='null';
+  localStorage.idempleado='null';
+
     //on ready
   });
   
@@ -22,7 +26,9 @@ const request = await fetch('api/login', {
     if(respuesta[0] !='FAIL'){
       localStorage.token=respuesta[0];
       localStorage.nombrecompleto=respuesta[1];
-      window.location.href = "empleados.html"
+      localStorage.idempleado=respuesta[2];
+      localStorage.rol=respuesta[3];
+      window.location.href = "movimientos.html"
     }
 
     else {

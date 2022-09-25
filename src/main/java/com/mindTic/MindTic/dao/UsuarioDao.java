@@ -20,4 +20,6 @@ public interface UsuarioDao {
     void nempresa(Empresa empresa);
 
     void nempleado(Empleado empleadoa);
+
+    void nuevoMovimientos(MovimientoDinero movimientoDinero);
 }

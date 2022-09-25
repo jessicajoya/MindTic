@@ -1,8 +1,20 @@
 // Call the dataTables jQuery plugin
 $(document).ready(function () {
+  verificarlogin();
   cargardatos();
   cargarrol();
+
 });
+
+function verificarlogin() {
+  if (localStorage.nombrecompleto == "null") {
+    location.href = "login.html";
+  }
+  if(localStorage.rol=="2"){    
+    alert('Su Perfil Rol no tiene permisos para esta funcion')
+    location.href = "movimientos.html";
+  }
+}
 
 async function cargardatos() {
 
@@ -38,7 +50,7 @@ async function cargarrol() {
 
   let listadoHtml = '';
   for (let usuario of usuarios) {
-    let usuarioHtml = '<option value=' +usuario[0]+ '>' + usuario[1] + '</option>';
+    let usuarioHtml = '<option value=' + usuario[0] + '>' + usuario[1] + '</option>';
     listadoHtml += usuarioHtml;
   }
 
@@ -46,12 +58,12 @@ async function cargarrol() {
 
 }
 
-async function nuevoEmpleado() {  
-  empleado={};
+async function nuevoEmpleado() {
+  empleado = {};
   empleado.nombrecompleto = document.getElementById('txtNombre').value;
   empleado.email = document.getElementById('txtEmail').value;
   empleado.password = document.getElementById('txtPassword').value;
-  empleado.rolid= parseInt(document.getElementById('rol').value, 10);
+  empleado.rolid = parseInt(document.getElementById('rol').value, 10);
   empleado.empresaid = parseInt(document.getElementById('emp').value, 10);
   let rpassword = document.getElementById('txtRPassword').value;
 
@@ -62,7 +74,7 @@ async function nuevoEmpleado() {
     return
   }
 
-  if (empleado.nombrecompleto== "" || empleado.email == "" || empleado.password == "" || empleado.rolid == "" || empleado.empresaid == "") {
+  if (empleado.nombrecompleto == "" || empleado.email == "" || empleado.password == "" || empleado.rolid == "" || empleado.empresaid == "") {
     alert("Ingrese todos los datos!")
     return
   }
@@ -73,10 +85,10 @@ async function nuevoEmpleado() {
       'Accept': 'application/json',
       'Content-Type': 'application/json'
     },
-    body:JSON.stringify(empleado)
+    body: JSON.stringify(empleado)
   });
-  location.href ="empleados.html";
+  location.href = "empleados.html";
   const respuesta = await request.text();
- 
+
 
 }

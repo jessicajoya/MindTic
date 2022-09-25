@@ -36,7 +36,7 @@ public class usuarioimp implements UsuarioDao{
 
     @Override
     public List<MovimientoDinero> listarMovimiento() {
-        String query = "SELECT idmovimiento, monto, tipomovimiento, conceptomovimiento, fecha_creacion, fecha_act FROM MovimientoDinero";
+        String query = "SELECT idmovimiento, monto, tipomovimiento, conceptomovimiento, empleado.nombrecompleto FROM MovimientoDinero";
         return entityManager.createQuery(query).getResultList();
     }
 
@@ -103,5 +103,15 @@ public class usuarioimp implements UsuarioDao{
         empleado.setFecha_creacion(date);
         empleado.setFecha_act(date);
         entityManager.merge(empleado);
+    }
+
+    @Override
+    public void nuevoMovimientos(MovimientoDinero movimientoDinero) {
+        long miliseconds = System.currentTimeMillis();
+        Date date = new Date(miliseconds);
+        movimientoDinero.setFecha_creacion(date);
+        movimientoDinero.setFecha_act(date);
+        movimientoDinero.setEmpleado(entityManager.find(Empleado.class,movimientoDinero.getEmpid()));
+        entityManager.merge(movimientoDinero);
     }
 }

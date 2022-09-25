@@ -30,6 +30,8 @@ public class AutControl {
             String tokenJwt=jwtUtil.create(String.valueOf(empleadologueado.getIdempleado()),empleadologueado.getEmail());
             token.add(tokenJwt);
             token.add(empleadologueado.getNombrecompleto());
+            token.add(empleadologueado.getIdempleado());
+            token.add(empleadologueado.getRolid());
             return token;
                     }
         token.add("FAIL");
