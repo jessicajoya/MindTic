@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+
 @Entity
 @Table(name = "empleados")
 public class Empleado {
@@ -34,6 +35,10 @@ public class Empleado {
     @Getter
     @Column(name = "password")
     private String password;
+
+
+    //roles para OAUTH
+    private List<String> roles;
 
     @ManyToOne()
     @JoinColumn(name = "idrol")

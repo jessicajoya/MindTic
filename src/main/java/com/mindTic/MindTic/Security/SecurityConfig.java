@@ -27,13 +27,29 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter{
         @Override
         protected void configure(HttpSecurity http) throws Exception{
             http.authorizeRequests()
-                    .antMatchers("/admin").hasRole("ADMIN")
+                    .antMatchers("/").permitAll()
+                    .antMatchers("api/login").permitAll()
+
+                    .antMatchers("/login.html").permitAll()
+                    .antMatchers("/movimientos.html").permitAll()
+                    .antMatchers("/empleados.html").permitAll()
+                    .antMatchers("/empresas.html").permitAll()
+                    .antMatchers("/movimientos.html").permitAll()
+                    .antMatchers("/blank.html").permitAll()
+                     .antMatchers("/nuevaempresa.html").hasRole("ADMIN")
+                     .antMatchers("/nuevoempleado.html").hasRole("ADMIN")
+                    .antMatchers("/nuevomovimiento.html").permitAll();
+
+
+
+
+                   /* .antMatchers("/admin").hasRole("ADMIN")
                     .antMatchers("/usuario/front/**").hasRole("ADMIN")
                     .antMatchers("/user").hasAnyRole("ADMIN","USER")
                     .antMatchers("/").permitAll()
                     .antMatchers("/login*").permitAll()
                     .antMatchers("/oauth/**").permitAll()
-            ;
+            ;*/
 
 
         }
