@@ -4,6 +4,10 @@ $(document).ready(function () {
   cargardatos();
   cargarrol();
 
+  if(sessionStorage.idempleado>=1){
+    actualizarempleado();
+  }
+
 });
 
 function verificarlogin() {
@@ -92,3 +96,55 @@ async function nuevoEmpleado() {
 
 
 }
+
+async function actualizarempleado(){   
+
+  console.log(sessionStorage.idempleado)
+  const request = await fetch('api/listarempleados/'+sessionStorage.idempleado, {
+    method: 'PATCH',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(sessionStorage.idempleado)
+  });
+  const usuarios = await request.json();
+  document.getElementById('txtNombre').value=usuarios[0];
+  document.getElementById('txtEmail').value=usuarios[1];
+}
+
+
+async function actempleado(){   
+
+  empleado = {};
+  empleado.idempleado=sessionStorage.idempleado;
+  empleado.nombrecompleto = document.getElementById('txtNombre').value;
+  empleado.email = document.getElementById('txtEmail').value;
+  empleado.password = document.getElementById('txtPassword').value;
+  let rpassword = document.getElementById('txtRPassword').value;
+  empleado.rolid = parseInt(document.getElementById('rol').value, 10);
+  empleado.empresaid = parseInt(document.getElementById('emp').value, 10);
+
+  console.log(empleado);
+
+  if (empleado.password != rpassword) {
+    alert("Las contraseñas no coinciden!")
+    return
+  }
+
+  if (empleado.nombrecompleto == "" || empleado.email == "" || empleado.password == "" || empleado.rolid == "" || empleado.empresaid == "") {
+    alert("Ingrese todos los datos!")
+    return
+  }
+
+  const request = await fetch('api/traerempleado/'+sessionStorage.idempleado, {
+    method: 'PATCH',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(empleado)
+  });
+  location.href = "empleados.html";
+  sessionStorage.clear();
+ }

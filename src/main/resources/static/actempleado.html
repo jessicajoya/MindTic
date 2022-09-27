@@ -34,35 +34,43 @@
                     <div class="col-lg-7">
                         <div class="p-5">
                             <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">Realizar un Nuevo Movimiento de Dinero!</h1>
+                                <h1 class="h4 text-gray-900 mb-4">Actualizar Empleado!</h1>
                             </div>
                             <form class="user">
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" id="txtMonto"
-                                            placeholder="Monto">
+                                        <input type="text" class="form-control form-control-user" id="txtNombre"
+                                            placeholder="Nombre Completo">
                                     </div>
                                     <div class="col-sm-6">
-                                        <select name="select" class="btn  btn-user btn-block"id="txtTipo">
-                                            <option class="form-control form-control-user" value="Gastos">Gastos</option>
-                                            <option class="form-control form-control-user" value="Ventas">Ventas</option>
+                                        <input type="text" class="form-control form-control-user" id="txtEmail"
+                                            placeholder="Email">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="password" class="form-control form-control-user"
+                                            id="txtPassword" placeholder="Password">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="password" class="form-control form-control-user"
+                                            id="txtRPassword" placeholder="Repeat Password">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <select class="btn  btn-user btn-block" name="a"id="rol">
+                                            <option value="x"id="listrol"></option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <select class="btn  btn-user btn-block" name="a"placeholder="Empresa"id="emp">
+                                            <option value="x"id="listempresas"></option>
                                         </select>
                                     </div>
                                 </div>
-
-                                <div class="row mb-4 col-sm-12">
-                                    <input type="text" class="form-control form-control-user" id="txtConcepto"
-                                        placeholder="Concepto de Monto">
-                                </div>
-                                <div class="row mb-4 col-sm-12">
-                                    <select class="btn  btn-user btn-block" name="a" placeholder="Empresa" id="emp">
-                                        <option value="x" id="empleado"></option>
-                                    </select>
-                                </div>
-
-
-                                <a onclick="nuevoMovimiento()" href="#" class="btn btn-primary btn-user btn-block">
-                                    Registrar
+                                <a onclick="actempleado()"href="#" class="btn btn-primary btn-user btn-block">
+                                    Actualizar
                                 </a>
 
                             </form>
@@ -87,8 +95,7 @@
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
-    <script src="js/nuevomovimiento.js"></script>
-
+    <script src="js/nuevoempleado.js"></script>
 
 </body>
 

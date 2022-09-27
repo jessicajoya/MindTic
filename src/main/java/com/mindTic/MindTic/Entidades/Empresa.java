@@ -11,29 +11,46 @@ import java.util.List;
 @Table(name = "empresas")
 public class Empresa {
 
-
-    @Getter    @Setter @Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name="idempresa")
+    @Getter
+    @Setter
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idempresa")
     private long idempresa;
 
-    @Getter    @Setter @Column(name="nombre")
+    @Getter
+    @Setter
+    @Column(name = "nombre")
     private String nombre;
 
-    @Getter    @Setter @Column(name="direccion")
+    @Getter
+    @Setter
+    @Column(name = "direccion")
     private String direccion;
 
-    @Getter    @Setter @Column(name="telefono")
+    @Getter
+    @Setter
+    @Column(name = "telefono")
     private String telefono;
 
-    @Getter    @Setter @Column(name="nit")
+    @Getter
+    @Setter
+    @Column(name = "nit")
     private String nit;
 
-    @Getter    @Setter @Column(name="fecha_creacion")
+    @Getter
+    @Setter
+    @Column(name = "fecha_creacion")
     private Date fecha_creacion;
 
-    @Getter    @Setter @Column(name="fecha_act")
+    @Getter
+    @Setter
+    @Column(name = "fecha_act")
     private Date fecha_act;
 
-    @OneToMany(mappedBy = "empresa", cascade = CascadeType.ALL, orphanRemoval = true) @Setter @Getter
+    @OneToMany(mappedBy = "empresa", cascade = CascadeType.ALL, orphanRemoval = true)
+    @Setter
+    @Getter
     private List<Empleado> EmpleadosList;
 
     public Empresa() {

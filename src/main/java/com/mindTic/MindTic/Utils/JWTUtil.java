@@ -1,4 +1,5 @@
 package com.mindTic.MindTic.Utils;
+
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtBuilder;
 import io.jsonwebtoken.Jwts;
@@ -18,6 +19,7 @@ import java.util.Date;
  */
 @Component
 public class JWTUtil {
+
     @Value("${security.jwt.secret}")
     private String key;
 

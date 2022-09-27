@@ -21,22 +21,20 @@ public class AutControl {
     @Autowired
     private JWTUtil jwtUtil;
 
-
     @RequestMapping(value = "api/login", method = RequestMethod.POST)
     public List login(@RequestBody Empleado empleado) {
-        Empleado empleadologueado=usuariodao.verificarLogin(empleado);
-        List token =new ArrayList();
-        if (empleadologueado!=null) {
-            String tokenJwt=jwtUtil.create(String.valueOf(empleadologueado.getIdempleado()),empleadologueado.getEmail());
+        Empleado empleadologueado = usuariodao.verificarLogin(empleado);
+        List token = new ArrayList();
+        if (empleadologueado != null) {
+            String tokenJwt = jwtUtil.create(String.valueOf(empleadologueado.getIdempleado()), empleadologueado.getEmail());
             token.add(tokenJwt);
             token.add(empleadologueado.getNombrecompleto());
             token.add(empleadologueado.getIdempleado());
             token.add(empleadologueado.getRolid());
             return token;
-                    }
+        }
         token.add("FAIL");
         token.add("FAIL");
         return token;
     }
 }
-

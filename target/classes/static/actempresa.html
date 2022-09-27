@@ -34,41 +34,37 @@
                     <div class="col-lg-7">
                         <div class="p-5">
                             <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">Realizar un Nuevo Movimiento de Dinero!</h1>
+                                <h1 class="h4 text-gray-900 mb-4">Actualizar Esta Empresa!</h1>
                             </div>
                             <form class="user">
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" id="txtMonto"
-                                            placeholder="Monto">
+                                        <input type="text" class="form-control form-control-user" id="txtNombre"
+                                            placeholder="Nombre">
                                     </div>
                                     <div class="col-sm-6">
-                                        <select name="select" class="btn  btn-user btn-block"id="txtTipo">
-                                            <option class="form-control form-control-user" value="Gastos">Gastos</option>
-                                            <option class="form-control form-control-user" value="Ventas">Ventas</option>
-                                        </select>
+                                        <input type="text" class="form-control form-control-user" id="txtDireccion"
+                                            placeholder="Direccion">
                                     </div>
                                 </div>
-
-                                <div class="row mb-4 col-sm-12">
-                                    <input type="text" class="form-control form-control-user" id="txtConcepto"
-                                        placeholder="Concepto de Monto">
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="text" class="form-control form-control-user" id="txtTelefono"
+                                            placeholder="Telefono">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control form-control-user" id="txtNit"
+                                            placeholder="Nit">
+                                    </div>
                                 </div>
-                                <div class="row mb-4 col-sm-12">
-                                    <select class="btn  btn-user btn-block" name="a" placeholder="Empresa" id="emp">
-                                        <option value="x" id="empleado"></option>
-                                    </select>
-                                </div>
-
-
-                                <a onclick="nuevoMovimiento()" href="#" class="btn btn-primary btn-user btn-block">
-                                    Registrar
+                                <a href="#" onclick="actempresa()" class="btn btn-primary btn-user btn-block">
+                                    Actualizar
                                 </a>
 
                             </form>
                             <hr>
                             <div class="text-center">
-                                <a class="small" href="login.html">Ya tienes una cuenta? Inicia Sesion!</a>
+                                <a class="small" href="login.html">Ya tienes una cuenta?    Inicia Sesion!</a>
                             </div>
                         </div>
                     </div>
@@ -87,8 +83,7 @@
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
-    <script src="js/nuevomovimiento.js"></script>
-
+    <script src="js/nuevaempresa.js"></script>
 
 </body>
 
