@@ -9,7 +9,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-
+enum ROLES {
+    Admin,Operario;
+}
 @Entity
 @Table(name = "empleados")
 public class Empleado {
@@ -38,7 +40,15 @@ public class Empleado {
 
 
     //roles para OAUTH
-    private List<String> roles;
+    private String roles;
+
+    public String getRoles() {
+        return roles;
+    }
+
+    public void setRoles(String roles) {
+        this.roles = roles;
+    }
 
     @ManyToOne()
     @JoinColumn(name = "idrol")

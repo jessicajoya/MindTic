@@ -27,10 +27,6 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter{
         @Override
         protected void configure(HttpSecurity http) throws Exception{
             http.authorizeRequests()
-                    .antMatchers("/").permitAll()
-                    .antMatchers("api/login").permitAll()
-
-                    .antMatchers("/login.html").permitAll()
                     .antMatchers("/movimientos.html").permitAll()
                     .antMatchers("/empleados.html").permitAll()
                     .antMatchers("/empresas.html").permitAll()
@@ -38,7 +34,11 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter{
                     .antMatchers("/blank.html").permitAll()
                      .antMatchers("/nuevaempresa.html").hasRole("ADMIN")
                      .antMatchers("/nuevoempleado.html").hasRole("ADMIN")
-                    .antMatchers("/nuevomovimiento.html").permitAll();
+                    .antMatchers("/nuevomovimiento.html").permitAll()
+                    .and()
+                    .formLogin()
+                    .loginPage("/login.html")
+            ;
 
 
 

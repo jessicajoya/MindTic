@@ -20,12 +20,11 @@ public class MyUserDetail implements UserDetails {
         this.password = empleado.getPassword();
         List <GrantedAuthority> roles = new ArrayList<>();
 
-      /*  // ADMIN,USER,EMPLEADO,APRENDIZ
-        for (ROLES rol : empleado.getRoles()) {
+        for (String rol : empleado.getRoles().split(",")) {
             roles.add(
-                    new SimpleGrantedAuthority(rol.name())
+                    new SimpleGrantedAuthority(rol)
             );
-        }*/
+        }
 
         this.authorities = roles;
     }
@@ -38,6 +37,7 @@ public class MyUserDetail implements UserDetails {
     public String getPassword() {
         return this.password;
     }
+
 
     @Override
     public String getUsername() {
