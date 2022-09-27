@@ -1,8 +1,8 @@
 // Call the dataTables jQuery plugin
 $(document).ready(function() {
-  localStorage.clear();
   localStorage.nombrecompleto='null';
   localStorage.idempleado='null';
+  localStorage.clear();
 
     //on ready
   });
