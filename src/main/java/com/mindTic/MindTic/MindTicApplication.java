@@ -1,4 +1,4 @@
-package com.MindTic.MindTic;
+package com.mindTic.MindTic;
 
 
 import org.springframework.boot.SpringApplication;

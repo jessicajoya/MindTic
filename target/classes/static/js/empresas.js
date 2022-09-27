@@ -21,8 +21,7 @@ function verificarlogin() {
 
 async function cargarUsuarios() {
 
-  sessionStorage.clear()
-  const request = await fetch('api/listarempresas', {
+    const request = await fetch('api/listarempresas', {
     method: 'GET',
     headers: {
       'Accept': 'application/json',
